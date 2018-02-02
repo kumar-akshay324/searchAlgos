@@ -65,9 +65,8 @@ def hillClimbing(DistributionPointList, xAxisPointList, screen, white, red, blac
         startPointX = random.choice(xAxisPointList)
         # print (startPointX)
         startPoint= startPointX[0]
-        loop = True
 
-        while loop==True:
+        while True:
 
             currentNum =  [startPoint, int(DistributionPointList[startPoint])]
             neighborOne = [startPoint + 1, int(DistributionPointList[startPoint + 1])]
@@ -93,18 +92,14 @@ def hillClimbing(DistributionPointList, xAxisPointList, screen, white, red, blac
                 maximaList_y.append(currentNum[1])
                 break
 
-    # print (maximaList)
     maxValue_y = min(maximaList_y)
-
     maxValue_x = maximaList_x[maximaList_y.index(maxValue_y)]
-
-    print (maximaList)
-    # print (maxValue_y)
-    print (maxValue_x, maxValue_y)
+    # print (maximaList)
+    # print (maxValue_x, maxValue_y)
 
     pygame.draw.circle(screen, black, (maxValue_x, maxValue_y), 25)
     pygame.display.update()
-
+    print ("Reached global maxima")
     time.sleep(5)
 
 screen, white, red, black, pink, DistributionPointList, xAxisPointList = visualize_distribution(1600, 1000)
